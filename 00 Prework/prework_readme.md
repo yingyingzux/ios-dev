@@ -27,7 +27,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://github.com/yzhanghearsay/iOs-dev/blob/master/Tipsyy%20Project/Tipsyy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/yzhanghearsay/ios-dev/blob/master/00%20Prework/Tipsyy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
