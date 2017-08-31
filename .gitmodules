@@ -1,3 +1,6 @@
 [submodule "00 Prework/00 Prework/Tipsyy"]
 	path = 00 Prework/00 Prework/Tipsyy
 	url = git://github.com/yzhanghearsay/ios-dev.git
+[submodule "00 ."]
+	path = 00 .
+	url = git://github.com/yzhanghearsay/ios-dev.git
