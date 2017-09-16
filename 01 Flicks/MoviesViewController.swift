@@ -109,11 +109,11 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
             let imageUrl = NSURL (string: baseUrl + posterPath)
             
-            //cell.posterView.setImageWith(imageUrl! as URL)
+            cell.posterView.setImageWith(imageUrl! as URL)
             
             //let imageRequest = NSURLRequest(URL: NSURL(string: imageUrl)!)
-            let imageRequest = NSURLRequest(url: imageUrl)
-            
+            //let imageRequest = NSURLRequest(url: imageUrl)
+            /*
             cell.posterImageView.setImageWithURLRequest(
                 imageRequest,
                 placeholderImage: nil,
@@ -134,7 +134,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             },
                 failure: { (imageRequest, imageResponse, error) -> Void in
                     // do something for the failure condition
-            })
+            })*/
         }
         
         //print ("row \(indexPath.row)")
