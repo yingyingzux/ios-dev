@@ -1,6 +1,6 @@
 # Project 1 - *Flicks*
 
-**Name of your app** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+**Flicks** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
 Time spent: **X** hours spent in total
 
@@ -8,21 +8,21 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] User can view a list of movies currently playing in theaters. Poster images load asynchronously.
-- [ ] User can view movie details by tapping on a cell.
-- [ ] User sees loading state while waiting for the API.
-- [ ] User sees an error message when there is a network error.
-- [ ] User can pull to refresh the movie list.
+- [x] User can view a list of movies currently playing in theaters. Poster images load asynchronously.
+- [x] User can view movie details by tapping on a cell.
+- [x] User sees loading state while waiting for the API.
+- [x] User sees an error message when there is a network error.
+- [x] User can pull to refresh the movie list.
 
 The following **optional** features are implemented:
 
-- [ ] Add a tab bar for **Now Playing** and **Top Rated** movies.
+- [x] Add a tab bar for **Now Playing** and **Top Rated** movies.
 - [ ] Implement segmented control to switch between list view and grid view.
 - [ ] Add a search bar.
-- [ ] All images fade in.
-- [ ] For the large poster, load the low-res image first, switch to high-res when complete.
-- [ ] Customize the highlight and selection effect of the cell.
-- [ ] Customize the navigation bar.
+- [x] All images fade in.
+- [x] For the large poster, load the low-res image first, switch to high-res when complete.
+- [x] Customize the highlight and selection effect of the cell.
+- [x] Customize the navigation bar.
 
 The following **additional** features are implemented:
 
@@ -40,9 +40,15 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
+- Display a view for networking error. I initially put the view on top of MovieCell, and it resulted in a weird gap between nav bar and MovieCell. Then I realized that that view should show up when there's no data, so I solved it by moving it below the MovieCell. However, I think networking error can happen when there's data (e.g. user trying to refresh but loses network at that time), so I think the best solution is to have a view on top of the MovieCell layer but I was not able to figure out how to do that.
+- Make tab bar programmatically challenge 1: after added the tab bar, my nav bar is gone. Spent way too much time trying to figure out why. Lia helped me double check and noticed that I put nowPlayingViewController instead of nowPlayingNavigationController in places like array tabBarController.viewControllers. Honestly I'm still not totally clear why I can't put view  controller here.
+- Make tab bar programmatically challenge 2: the tab bar appears on every view. There's no hints on how to disable it from other views. I did some research and solved it by adding self.tabBarController?.tabBar.isHidden to viewWillAppear func.
+- Make tab bar programmatically challenge 3: because I programmatically made tab bar, I need to set its style programmatically as well. It was not straightforward but I was able to find answers from StackOverflow.
+- A few times I didn't notice info/hints already provided by the Assignment page.
+
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2017] [Yingying Zhang]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
