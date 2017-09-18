@@ -18,7 +18,7 @@ The following **optional** features are implemented:
 
 - [x] Add a tab bar for **Now Playing** and **Top Rated** movies.
 - [ ] Implement segmented control to switch between list view and grid view.
-- [ ] Add a search bar.
+- [x] Add a search bar.
 - [x] All images fade in.
 - [x] For the large poster, load the low-res image first, switch to high-res when complete.
 - [x] Customize the highlight and selection effect of the cell.
@@ -45,6 +45,8 @@ Describe any challenges encountered while building the app.
 - Make tab bar programmatically challenge 2: the tab bar appears on every view. There's no hints on how to disable it from other views. I did some research and solved it by adding self.tabBarController?.tabBar.isHidden to viewWillAppear func.
 - Make tab bar programmatically challenge 3: because I programmatically made tab bar, I need to set its style programmatically as well. It was not straightforward but I was able to find answers from StackOverflow.
 - A few times I didn't notice info/hints already provided by the Assignment page.
+- Trying to parse Genre names from Movie DB and look up using genre ids. I was able to get the genre json into an array, but can't figure out a way to find name value using id. You'll see a big chunk of commented out genre related code in the MoviesViewController.swift.
+- I was trying to make a nav bar button flipping between list and grid, but not able to make it work: 1. nav bar image doesn't change even though I tried to setBackgroundImage programmatically in @IBAction func switchLayoutButtonPressed(_ sender: Any). 2. Not able to get image to show up in collectionView, not sure why.
 
 ## License
 

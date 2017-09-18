@@ -35,9 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         topRatedViewController.endpoint = "top_rated"
     
         nowPlayingNavigationController.tabBarItem.title = "Now Playing"
-        //nowPlayingNavigationController.tabBarItem.image = UIImage(named: "now_playing")
+        nowPlayingNavigationController.tabBarItem.image = UIImage(named: "movie")
         topRatedNavigationController.tabBarItem.title = "Top Rated"
-        //topRatedNavigationController.tabBarItem.image = UIImage(named: "top_rated")
+        topRatedNavigationController.tabBarItem.image = UIImage(named: "star")
         
         let tabBarController = UITabBarController()
         
@@ -46,7 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabBarController.selectedIndex = 0;
         
         
-        tabBarController.tabBar.tintColor = UIColor.yellow
+        tabBarController.tabBar.tintColor = UIColor(red:1.00, green:0.80, blue:0.40, alpha:1.0)
+
         
         tabBarController.tabBar.selectionIndicatorImage = nil
             

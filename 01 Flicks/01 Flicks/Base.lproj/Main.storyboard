@@ -37,11 +37,11 @@
                                             <rect key="frame" x="72" y="8" width="231" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="128" id="xif-QW-sTv" customClass="MovieCell" customModule="_1_Flicks" customModuleProvider="target">
@@ -69,7 +69,7 @@
                                                     <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Genre" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bw6-F1-8Q1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Genre goes here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bw6-F1-8Q1">
                                                     <rect key="frame" x="115" y="72" width="248" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -123,11 +123,30 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movies" id="3rg-kc-IxG"/>
+                    <navigationItem key="navigationItem" title="Movies" id="3rg-kc-IxG">
+                        <barButtonItem key="rightBarButtonItem" image="list" style="plain" id="yBD-px-sby">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="APM-dW-0V1">
+                                <rect key="frame" x="329" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" backgroundImage="grid">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="switchLayoutButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6ui-Y6-jW7"/>
+                                </connections>
+                            </button>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="switchLayoutButton:" destination="BYZ-38-t0r" id="KrP-RN-Dr1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="0n4-iB-t42" id="3b0-u7-IpR"/>
                         <outlet property="networkErrorView" destination="Gzk-73-Xb0" id="Bsz-vf-PQR"/>
                         <outlet property="searchBar" destination="pv6-M8-o1t" id="tqn-eZ-Yf0"/>
+                        <outlet property="switchLayoutButton" destination="yBD-px-sby" id="Ubk-HL-td5"/>
                         <outlet property="tableView" destination="0EB-US-Vjm" id="eyS-M0-l5o"/>
                     </connections>
                 </viewController>
@@ -219,6 +238,10 @@
             <point key="canvasLocation" x="1846.5" y="152.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="grid" width="25" height="25"/>
+        <image name="list" width="25" height="25"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

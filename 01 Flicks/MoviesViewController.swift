@@ -17,26 +17,45 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var networkErrorView: UIView!
-    
-    var endpoint: String = "now_playing"
-    
+  
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var switchLayoutButton: UIBarButtonItem!
+    
+    
+    @IBAction func switchLayoutButtonPressed(_ sender: Any) {
+        
+        if collectionView.isHidden {
+            collectionView.isHidden = false
+            
+            switchLayoutButton.setBackgroundImage(UIImage(named: "list"), for: UIControlState.normal, barMetrics: UIBarMetrics.default)
+        } else {
+            collectionView.isHidden = true
+            switchLayoutButton.setBackgroundImage(UIImage(named: "grid"), for: UIControlState.normal, barMetrics: UIBarMetrics.default)
+        }
+    }
+
     var movies: [NSDictionary]? // data
     
     var filteredData: [NSDictionary]?
+    
+    var endpoint: String = "now_playing"
     
     var genreDictionary: [NSData]?
     var genres: [NSDictionary]?
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        
+        collectionView.isHidden = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         getGenresFromUrl() // get Genre json
+        */
         
         // search bar delegate
         searchBar.delegate = self
@@ -311,10 +330,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
         let url = URL(string: "https://api.themoviedb.org/3/movie/\(endpoint)?api_key=\(apiKey)")
-        //let genreUrl = URL(string: "https://api.themoviedb.org/3/genre/movie/list?api_key=\(apiKey)&language=en-US")
+        let genreUrl = URL(string: "https://api.themoviedb.org/3/genre/movie/list?api_key=\(apiKey)&language=en-US")
         
         let request = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        //let genreRequest = URLRequest(url: genreUrl!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let genreRequest = URLRequest(url: genreUrl!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         
         // get movies
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -336,6 +355,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     // refresh control - end
     
+    /*
     // get genre json
     func getGenresFromUrl(){
         let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
@@ -357,20 +377,25 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     // get genre json - end
-    
+ */
+ 
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let cell = sender as! UITableViewCell
-        let indexPath = tableView.indexPath(for: cell)
+        let tableCell = sender as! UITableViewCell
+        //let collectionCell = sender as! UICollectionViewCell
+        
+        let indexPath = tableView.indexPath(for: tableCell)
+        //let indexPath = collectionView.indexPath(for: collectionCell)
+        
         let movie = movies![indexPath!.row]
         //let genre = genres ?? how to write which genre
         let detailsViewController = segue.destination as! DetailsViewController
         
         detailsViewController.movie = movie
         
-        cell.selectionStyle = .none
+        tableCell.selectionStyle = .none
         
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
